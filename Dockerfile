@@ -30,7 +30,7 @@ RUN wget -q --no-check-certificate --no-cookies -O - \
 #ADD druid-0.10.1-bin.tar.gz /opt/
 #RUN ln -s /opt/druid-$DRUID_VERSION /opt/druid 
 COPY hadoop-dependencies/hadoop-aws-2.7.3.jar /opt/druid/hadoop-dependencies/hadoop-client/2.7.3/
-COPY extensions/kafka-emitter /opt/druid/extensions/kafka-emitter
+COPY extensions/ /opt/druid/extensions/
 COPY lib/* /opt/druid/lib/
 COPY conf /opt/druid-$DRUID_VERSION/conf
 COPY docker-entrypoint.sh /docker-entrypoint.sh
