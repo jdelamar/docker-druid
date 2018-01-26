@@ -1,3 +1,5 @@
+* fix - removing 'exec' from docker-entrypoint so that druid PID is not 1. Java process with PID 1 can't have their memory dumped by jmap
+
 ## Current Release 
 ### 0.3.0 
 **Release Date:** Wed Dec 20 00:17:01 UTC 2017     
