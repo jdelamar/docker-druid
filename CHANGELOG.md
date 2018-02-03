@@ -1,7 +1,9 @@
 ## Current Release 
+### 0.5.0 
+**Release Date:** Sat Feb  3 17:07:15 UTC 2018     
+## Previous Releases 
 ### 0.4.0 
 **Release Date:** Fri Jan 26 16:47:05 UTC 2018     
-## Previous Releases 
 * fix - removing 'exec' from docker-entrypoint so that druid PID is not 1. Java process with PID 1 can't have their memory dumped by jmap
 
 ### 0.3.0 
