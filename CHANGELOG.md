@@ -1,8 +1,10 @@
-* Fix for Middlemanager failing to start because [number of threads must be greater than 5](https://app.asana.com/0/520715087448242/549499425066572/f).
 ## Current Release 
+### 0.6.0 
+**Release Date:** Tue Feb  6 16:14:46 UTC 2018     
+## Previous Releases 
+* Fix for Middlemanager failing to start because [number of threads must be greater than 5](https://app.asana.com/0/520715087448242/549499425066572/f).
 ### 0.5.0 
 **Release Date:** Sat Feb  3 17:07:15 UTC 2018     
-## Previous Releases 
 ### 0.4.0 
 **Release Date:** Fri Jan 26 16:47:05 UTC 2018     
 * fix - removing 'exec' from docker-entrypoint so that druid PID is not 1. Java process with PID 1 can't have their memory dumped by jmap
