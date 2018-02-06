@@ -1,3 +1,4 @@
+* Fix for Middlemanager failing to start because [number of threads must be greater than 5](https://app.asana.com/0/520715087448242/549499425066572/f).
 ## Current Release 
 ### 0.5.0 
 **Release Date:** Sat Feb  3 17:07:15 UTC 2018     
