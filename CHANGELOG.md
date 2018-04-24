@@ -1,8 +1,10 @@
-Feature - upgrade to Druid version 0.12.0
 ## Current Release 
+### 0.8.0 
+**Release Date:** Tue Apr 24 15:28:59 UTC 2018     
+## Previous Releases 
+Feature - upgrade to Druid version 0.12.0
 ### 0.7.0 
 **Release Date:** Wed Feb 21 20:55:33 UTC 2018     
-## Previous Releases 
 ### 0.6.0 
 **Release Date:** Tue Feb  6 16:14:46 UTC 2018     
 * Fix for Middlemanager failing to start because [number of threads must be greater than 5](https://app.asana.com/0/520715087448242/549499425066572/f).
