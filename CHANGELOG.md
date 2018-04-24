@@ -1,3 +1,4 @@
+Feature - upgrade to Druid version 0.12.0
 ## Current Release 
 ### 0.7.0 
 **Release Date:** Wed Feb 21 20:55:33 UTC 2018     
