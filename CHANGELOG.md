@@ -1,3 +1,4 @@
+* Feature - reduce the amount of time the coordinator waits before updating lookups.
 ## Current Release 
 ### 0.7.0 
 **Release Date:** Wed Feb 21 20:55:33 UTC 2018     
