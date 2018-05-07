@@ -1,3 +1,4 @@
+Fix - revert Druid version back to 0.11.0
 ## Current Release 
 ### 0.9.0 
 **Release Date:** Thu May  3 18:05:39 UTC 2018     

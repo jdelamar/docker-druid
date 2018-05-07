@@ -2,7 +2,7 @@ FROM iron/java:1.8
 MAINTAINER jbaptiste <jb@zen.ly>
 
 # Java config
-ENV DRUID_VERSION   0.12.0
+ENV DRUID_VERSION   0.11.0
 #ENV JAVA_HOME       /opt/jdk1.8.0_131
 #ENV PATH            $PATH:/opt/jdk1.8.0_131/bin
 
