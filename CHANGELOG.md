@@ -1,8 +1,10 @@
-Fix - revert Druid version back to 0.11.0
 ## Current Release 
+### 0.10.0 
+**Release Date:** Mon May  7 12:37:16 UTC 2018     
+## Previous Releases 
+Fix - revert Druid version back to 0.11.0
 ### 0.9.0 
 **Release Date:** Thu May  3 18:05:39 UTC 2018     
-## Previous Releases 
 * Feature - reduce the amount of time the coordinator waits before updating lookups.
 ### 0.8.0 
 **Release Date:** Tue Apr 24 15:28:59 UTC 2018     
