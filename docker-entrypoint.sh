@@ -10,6 +10,7 @@ echo "DRUID_HOSTNAME ${DRUID_HOSTNAME}"
 echo "DRUID_LOGLEVEL ${DRUID_LOGLEVEL}"
 echo "DRUID_USE_CONTAINER_IP ${DRUID_USE_CONTAINER_IP}"
 echo "DRUID_MAX_DIRECTMEM_SIZE ${DRUID_MAX_DIRECTMEM_SIZE}"
+echo "DRUID_MIDDLEMANAGER_NUM_WORKERS ${DRUID_MIDDLEMANAGER_NUM_WORKERS}"
 echo "ipaddress ${ipaddress}"
 
 
@@ -44,6 +45,9 @@ if [ "$DRUID_MAX_DIRECTMEM_SIZE" != "-" ]; then
     sed -ri 's/MaxDirectMemorySize.*/MaxDirectMemorySize='${DRUID_MAX_DIRECTMEM_SIZE}'/g' /opt/druid/conf/druid/$1/jvm.config
 fi
 
+if [ "$DRUID_MIDDLEMANAGER_NUM_WORKERS" != "-" ]; then
+   sed -ri 's/druid.worker.capacity=.*/druid.worker.capacity='${DRUID_MIDDLEMANAGER_NUM_WORKERS}'/g' /opt/druid/conf/druid/$1/runtime.properties
+fi
 
 : ${KAFKA_BROKER_HOSTNAME='kafka'}
 : ${KAFKA_BROKER_PORT='9092'}

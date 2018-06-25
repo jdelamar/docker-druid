@@ -1,3 +1,4 @@
+* Made the middlemanager num workers configurable via ENV variable. It still defaults to "2", but it can be set with the DRUID_MIDDLEMANAGER_NUM_WORKERS env variable
 ## Current Release 
 ### 0.10.0 
 **Release Date:** Mon May  7 12:37:16 UTC 2018     
