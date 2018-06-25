@@ -1,8 +1,10 @@
-* Feature - Made the middlemanager num workers configurable via ENV variable. It still defaults to "2", but it can be set with the DRUID_MIDDLEMANAGER_NUM_WORKERS env variable
 ## Current Release 
+### 0.11.0 
+**Release Date:** Mon Jun 25 17:47:16 UTC 2018     
+## Previous Releases 
+* Feature - Made the middlemanager num workers configurable via ENV variable. It still defaults to "2", but it can be set with the DRUID_MIDDLEMANAGER_NUM_WORKERS env variable
 ### 0.10.0 
 **Release Date:** Mon May  7 12:37:16 UTC 2018     
-## Previous Releases 
 Fix - revert Druid version back to 0.11.0
 ### 0.9.0 
 **Release Date:** Thu May  3 18:05:39 UTC 2018     
