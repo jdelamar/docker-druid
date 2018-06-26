@@ -1,3 +1,4 @@
+* Feature - Adding the java JDK with image so that all troubleshooting tools are shipped with the image
 ## Current Release 
 ### 0.11.0 
 **Release Date:** Mon Jun 25 17:47:16 UTC 2018     

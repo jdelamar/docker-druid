@@ -16,7 +16,7 @@ ENV DRUID_LOGLEVEL      '-'
 ENV DRUID_USE_CONTAINER_IP      '-'
 ENV DRUID_MAX_DIRECTMEM_SIZE "-"
 ENV DRUID_MIDDLEMANAGER_NUM_WORKERS "-"
-RUN apk update && apk add wget tar bash curl vim \
+RUN apk update && apk add wget tar bash curl vim openjdk8 \
     && mkdir /tmp/druid \ 
     && rm -rf /var/cache/apk/*
 
