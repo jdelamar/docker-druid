@@ -1,8 +1,10 @@
-* Feature - Adding the java JDK with image so that all troubleshooting tools are shipped with the image
 ## Current Release 
+### 0.12.0 
+**Release Date:** Tue Jun 26 14:19:00 UTC 2018     
+## Previous Releases 
+* Feature - Adding the java JDK with image so that all troubleshooting tools are shipped with the image
 ### 0.11.0 
 **Release Date:** Mon Jun 25 17:47:16 UTC 2018     
-## Previous Releases 
 * Feature - Made the middlemanager num workers configurable via ENV variable. It still defaults to "2", but it can be set with the DRUID_MIDDLEMANAGER_NUM_WORKERS env variable
 ### 0.10.0 
 **Release Date:** Mon May  7 12:37:16 UTC 2018     
