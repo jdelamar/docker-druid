@@ -1,8 +1,10 @@
-* Fix - fixed bad Entrypoint from previous fix
 ## Current Release 
+### 0.14.0 
+**Release Date:** Thu Jul  5 18:27:29 UTC 2018     
+## Previous Releases 
+* Fix - fixed bad Entrypoint from previous fix
 ### 0.13.0 
 **Release Date:** Thu Jul  5 15:54:16 UTC 2018     
-## Previous Releases 
 * Fix - Fix defunct process preventing docker containers from being terminated gracefully in some cases. We added [dumb-init] to prevent defunct process from preventing docker service to upgrade a container that has a zombie process in it that is now owned by the host Init (and will thus not be reaped until a reboot)
 ### 0.12.0 
 **Release Date:** Tue Jun 26 14:19:00 UTC 2018     
