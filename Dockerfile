@@ -28,6 +28,9 @@ RUN wget -q --no-check-certificate --no-cookies -O - \
      http://static.druid.io/artifacts/releases/druid-$DRUID_VERSION-bin.tar.gz | tar -xzf - -C /opt \
      && ln -s /opt/druid-$DRUID_VERSION /opt/druid
 
+RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_amd64
+RUN chmod +x /usr/local/bin/dumb-init
+
 #ADD druid-0.10.1-bin.tar.gz /opt/
 #RUN ln -s /opt/druid-$DRUID_VERSION /opt/druid 
 COPY hadoop-dependencies/hadoop-aws-2.7.3.jar /opt/druid/hadoop-dependencies/hadoop-client/2.7.3/
@@ -38,4 +41,9 @@ COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 RUN mkdir -p /tmp/druid
 EXPOSE 8090 8081 8080 8082
-ENTRYPOINT ["/docker-entrypoint.sh"]
+# dumb-init must be used for all entrypoint
+# Note that Druid swarm task or docker run will typically be run with a CMD having the node flavor that
+# must be started (such as overlord, middlemanager, etc...
+
+ENTRYPOINT ["/usr/local/bin/dumb-init", "--", "bash", "-c", "exec /docker-entrypoint.sh"] 
+
