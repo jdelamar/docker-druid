@@ -1,3 +1,4 @@
+* Fix - fixed bad Entrypoint from previous fix
 ## Current Release 
 ### 0.13.0 
 **Release Date:** Thu Jul  5 15:54:16 UTC 2018     

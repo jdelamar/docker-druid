@@ -45,5 +45,5 @@ EXPOSE 8090 8081 8080 8082
 # Note that Druid swarm task or docker run will typically be run with a CMD having the node flavor that
 # must be started (such as overlord, middlemanager, etc...
 
-ENTRYPOINT ["/usr/local/bin/dumb-init", "--", "bash", "-c", "exec /docker-entrypoint.sh"] 
+ENTRYPOINT ["/usr/local/bin/dumb-init", "--", "/docker-entrypoint.sh"] 
 
