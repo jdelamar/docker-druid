@@ -11,6 +11,7 @@ echo "DRUID_LOGLEVEL ${DRUID_LOGLEVEL}"
 echo "DRUID_USE_CONTAINER_IP ${DRUID_USE_CONTAINER_IP}"
 echo "DRUID_MAX_DIRECTMEM_SIZE ${DRUID_MAX_DIRECTMEM_SIZE}"
 echo "DRUID_MIDDLEMANAGER_NUM_WORKERS ${DRUID_MIDDLEMANAGER_NUM_WORKERS}"
+echo "DRUID_HISTORICAL_NUM_PROCESSING_THREADS ${DRUID_HISTORICAL_NUM_PROCESSING_THREADS}"
 echo "ipaddress ${ipaddress}"
 
 
@@ -47,6 +48,10 @@ fi
 
 if [ "$DRUID_MIDDLEMANAGER_NUM_WORKERS" != "-" ]; then
    sed -ri 's/druid.worker.capacity=.*/druid.worker.capacity='${DRUID_MIDDLEMANAGER_NUM_WORKERS}'/g' /opt/druid/conf/druid/$1/runtime.properties
+fi
+
+if [ "${DRUID_HISTORICAL_NUM_PROCESSING_THREADS}" != "-"]; then
+   sed -ri 's/druid.processing.numThreads=.*/druid.processing.numThreads='${DRUID_HISTORICAL_NUM_PROCESSING_THREADS}'/g' /opt/druid/conf/druid/$1/runtime.properties
 fi
 
 : ${KAFKA_BROKER_HOSTNAME='kafka'}

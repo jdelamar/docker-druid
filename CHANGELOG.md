@@ -1,3 +1,4 @@
+* Feature - making druid.processing.numThreads configurable for historical nodes
 ## Current Release 
 ### 0.14.0 
 **Release Date:** Thu Jul  5 18:27:29 UTC 2018     
