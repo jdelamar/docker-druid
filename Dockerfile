@@ -2,21 +2,9 @@ FROM iron/java:1.8-dev
 MAINTAINER jbaptiste <jb@zen.ly>
 
 # Java config
-ENV DRUID_VERSION   0.11.0
+ENV DRUID_VERSION   0.12.2
 #ENV JAVA_HOME       /opt/jdk1.8.0_131
 #ENV PATH            $PATH:/opt/jdk1.8.0_131/bin
-
-# Druid env variable
-ENV DRUID_XMX           '-'
-ENV DRUID_XMS           '-'
-ENV DRUID_NEWSIZE       '-'
-ENV DRUID_MAXNEWSIZE    '-'
-ENV DRUID_HOSTNAME      '-'
-ENV DRUID_LOGLEVEL      '-'
-ENV DRUID_USE_CONTAINER_IP      '-'
-ENV DRUID_MAX_DIRECTMEM_SIZE "-"
-ENV DRUID_MIDDLEMANAGER_NUM_WORKERS "-"
-ENV DRUID_HISTORICAL_NUM_PROCESSING_THREADS = "-"
 
 RUN apk update && apk add wget tar bash curl vim openjdk8 \
     && mkdir /tmp/druid \ 
@@ -32,6 +20,21 @@ RUN wget -q --no-check-certificate --no-cookies -O - \
 
 RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_amd64
 RUN chmod +x /usr/local/bin/dumb-init
+
+
+# Druid env variable
+ENV DRUID_XMX           '-'
+ENV DRUID_XMS           '-'
+ENV DRUID_NEWSIZE       '-'
+ENV DRUID_MAXNEWSIZE    '-'
+ENV DRUID_HOSTNAME      '-'
+ENV DRUID_LOGLEVEL      '-'
+ENV DRUID_USE_CONTAINER_IP      '-'
+ENV DRUID_MAX_DIRECTMEM_SIZE "-"
+ENV DRUID_MIDDLEMANAGER_NUM_WORKERS "-"
+ENV DRUID_HISTORICAL_NUM_PROCESSING_THREADS "-"
+ENV DRUID_PROCESSING_BUFFER_SIZEBYTES "-"
+
 
 #ADD druid-0.10.1-bin.tar.gz /opt/
 #RUN ln -s /opt/druid-$DRUID_VERSION /opt/druid 

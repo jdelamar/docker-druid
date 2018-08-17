@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+: ${COORDINATOR_IP='coordinator'}
+: ${COORDINATOR_PORT='8081'}
+: ${KAFKA_BROKER_HOSTNAME='kafka'}
+: ${KAFKA_BROKER_PORT='9092'}
+
 echo "Starting $@ with the following"
 echo "DRUID_XMX ${DRUID_XMX}"
 echo "DRUID_XMS ${DRUID_XMS}"
@@ -12,8 +17,11 @@ echo "DRUID_USE_CONTAINER_IP ${DRUID_USE_CONTAINER_IP}"
 echo "DRUID_MAX_DIRECTMEM_SIZE ${DRUID_MAX_DIRECTMEM_SIZE}"
 echo "DRUID_MIDDLEMANAGER_NUM_WORKERS ${DRUID_MIDDLEMANAGER_NUM_WORKERS}"
 echo "DRUID_HISTORICAL_NUM_PROCESSING_THREADS ${DRUID_HISTORICAL_NUM_PROCESSING_THREADS}"
-echo "ipaddress ${ipaddress}"
+echo "DRUID_PROCESSING_BUFFER_SIZEBYTES ${DRUID_PROCESSING_BUFFER_SIZEBYTES}"
 
+echo "COORDINATOR_IP ${COORDINATOR_IP}"
+echo "COORDINATOR_PORT ${COORDINATOR_PORT}"
+echo "ipaddress ${ipaddress}"
 
 
 # Run as broker if needed
@@ -50,13 +58,18 @@ if [ "$DRUID_MIDDLEMANAGER_NUM_WORKERS" != "-" ]; then
    sed -ri 's/druid.worker.capacity=.*/druid.worker.capacity='${DRUID_MIDDLEMANAGER_NUM_WORKERS}'/g' /opt/druid/conf/druid/$1/runtime.properties
 fi
 
-if [ "${DRUID_HISTORICAL_NUM_PROCESSING_THREADS}" != "-"]; then
+if [ "${DRUID_HISTORICAL_NUM_PROCESSING_THREADS}" != "-" ]; then
    sed -ri 's/druid.processing.numThreads=.*/druid.processing.numThreads='${DRUID_HISTORICAL_NUM_PROCESSING_THREADS}'/g' /opt/druid/conf/druid/$1/runtime.properties
 fi
 
-: ${KAFKA_BROKER_HOSTNAME='kafka'}
-: ${KAFKA_BROKER_PORT='9092'}
+if [ "${DRUID_PROCESSING_BUFFER_SIZEBYTES}" != "-" ]; then
+   sed -ri 's/druid.processing.buffer.sizeBytes=.*/druid.processing.buffer.sizeBytes='${DRUID_PROCESSING_BUFFER_SIZEBYTES}'/g' /opt/druid/conf/druid/$1/runtime.properties
+fi
 
+if [ "$1" != "coordinator" ]; then
+	echo "Waiting for the coordinator to come online at ${COORDINATOR_IP} port ${COORDINATOR_PORT}"
+	until nc -z -w 2 ${COORDINATOR_IP} ${COORDINATOR_PORT}; do sleep 1; done
+fi
 echo "Waiting for kafka server @ $KAFKA_BROKER_HOSTNAME:$KAFKA_BROKER_PORT to start... "
 until nc -z -w 2 ${KAFKA_BROKER_HOSTNAME} ${KAFKA_BROKER_PORT}; do sleep 1; done
 echo "Kafka brokers are now online @ $KAFKA_BROKER_HOSTNAME:$KAFKA_BROKER_PORT"
