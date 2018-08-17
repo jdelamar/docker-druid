@@ -1,3 +1,5 @@
+* Feature - Upgrade to druid 0.12.0
+* Feature - New sizing defaults for historical buffer (1Gb instead of 256mb), ensuring that we have enough space to process SLA reports
 ## Current Release 
 ### 0.15.0 
 **Release Date:** Wed Aug 15 21:13:14 UTC 2018     
