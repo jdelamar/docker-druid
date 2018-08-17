@@ -1,9 +1,11 @@
+## Current Release 
+### 0.16.0 
+**Release Date:** Fri Aug 17 20:02:54 UTC 2018     
+## Previous Releases 
 * Feature - Upgrade to druid 0.12.0
 * Feature - New sizing defaults for historical buffer (1Gb instead of 256mb), ensuring that we have enough space to process SLA reports
-## Current Release 
 ### 0.15.0 
 **Release Date:** Wed Aug 15 21:13:14 UTC 2018     
-## Previous Releases 
 * Feature - making druid.processing.numThreads configurable for historical nodes
 ### 0.14.0 
 **Release Date:** Thu Jul  5 18:27:29 UTC 2018     
