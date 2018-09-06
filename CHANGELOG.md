@@ -1,3 +1,5 @@
+* Fix - Giving more memory to the middle manager Peons for 20k + TWAMP sessions systems
+
 ## Current Release 
 ### 0.16.0 
 **Release Date:** Fri Aug 17 20:02:54 UTC 2018     
