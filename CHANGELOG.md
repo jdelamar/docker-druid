@@ -1,9 +1,11 @@
+## Current Release 
+### 0.17.0 
+**Release Date:** Thu Sep  6 21:09:14 UTC 2018     
+## Previous Releases 
 * Fix - Giving more memory to the middle manager Peons for 20k + TWAMP sessions systems
 
-## Current Release 
 ### 0.16.0 
 **Release Date:** Fri Aug 17 20:02:54 UTC 2018     
-## Previous Releases 
 * Feature - Upgrade to druid 0.12.0
 * Feature - New sizing defaults for historical buffer (1Gb instead of 256mb), ensuring that we have enough space to process SLA reports
 ### 0.15.0 
