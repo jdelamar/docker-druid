@@ -1,3 +1,4 @@
+* Adding the DRUID_PEONS_JAVA_OPTS env variable to allow configuring memory for the peons from a docker-compose file (for instance)
 ## Current Release 
 ### 0.17.0 
 **Release Date:** Thu Sep  6 21:09:14 UTC 2018     

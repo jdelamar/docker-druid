@@ -18,6 +18,7 @@ echo "DRUID_MAX_DIRECTMEM_SIZE ${DRUID_MAX_DIRECTMEM_SIZE}"
 echo "DRUID_MIDDLEMANAGER_NUM_WORKERS ${DRUID_MIDDLEMANAGER_NUM_WORKERS}"
 echo "DRUID_HISTORICAL_NUM_PROCESSING_THREADS ${DRUID_HISTORICAL_NUM_PROCESSING_THREADS}"
 echo "DRUID_PROCESSING_BUFFER_SIZEBYTES ${DRUID_PROCESSING_BUFFER_SIZEBYTES}"
+echo "DRUID_PEONS_JAVA_OPTS ${DRUID_PEONS_JVM_PARAM}"
 
 echo "COORDINATOR_IP ${COORDINATOR_IP}"
 echo "COORDINATOR_PORT ${COORDINATOR_PORT}"
@@ -64,6 +65,9 @@ fi
 
 if [ "${DRUID_PROCESSING_BUFFER_SIZEBYTES}" != "-" ]; then
    sed -ri 's/druid.processing.buffer.sizeBytes=.*/druid.processing.buffer.sizeBytes='${DRUID_PROCESSING_BUFFER_SIZEBYTES}'/g' /opt/druid/conf/druid/$1/runtime.properties
+fi
+if [ "${DRUID_PEONS_JAVA_OPTS}" != "-" ]; then
+   sed -ri 's/druid.indexer.runner.javaOpts=.*/druid.indexer.runner.javaOpts='${DRUID_PEONS_JAVA_OPTS}'/g' /opt/druid/conf/druid/$1/runtime.properties
 fi
 
 if [ "$1" != "coordinator" ]; then
