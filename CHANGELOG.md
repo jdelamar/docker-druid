@@ -1,3 +1,4 @@
+* Fix - Fixed bad Env variable name
 ## Current Release 
 ### 0.18.0 
 **Release Date:** Wed Sep 19 16:46:03 UTC 2018     
