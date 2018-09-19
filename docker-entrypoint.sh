@@ -67,7 +67,7 @@ if [ "${DRUID_PROCESSING_BUFFER_SIZEBYTES}" != "-" ]; then
    sed -ri 's/druid.processing.buffer.sizeBytes=.*/druid.processing.buffer.sizeBytes='${DRUID_PROCESSING_BUFFER_SIZEBYTES}'/g' /opt/druid/conf/druid/$1/runtime.properties
 fi
 if [ "${DRUID_PEONS_JAVA_OPTS}" != "-" ]; then
-   sed -ri 's/druid.indexer.runner.javaOpts=.*/druid.indexer.runner.javaOpts='${DRUID_PEONS_JAVA_OPTS}'/g' /opt/druid/conf/druid/$1/runtime.properties
+   sed -ri 's/druid.indexer.runner.javaOpts=.*/druid.indexer.runner.javaOpts='"${DRUID_PEONS_JAVA_OPTS}"'/g' /opt/druid/conf/druid/$1/runtime.properties
 fi
 
 if [ "$1" != "coordinator" ]; then
