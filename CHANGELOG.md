@@ -1,8 +1,10 @@
-* Fix - Fixed bad Env variable name
 ## Current Release 
+### 0.19.0 
+**Release Date:** Wed Sep 19 21:20:18 UTC 2018     
+## Previous Releases 
+* Fix - Fixed bad Env variable name
 ### 0.18.0 
 **Release Date:** Wed Sep 19 16:46:03 UTC 2018     
-## Previous Releases 
 * Adding the DRUID_PEONS_JAVA_OPTS env variable to allow configuring memory for the peons from a docker-compose file (for instance)
 ### 0.17.0 
 **Release Date:** Thu Sep  6 21:09:14 UTC 2018     
