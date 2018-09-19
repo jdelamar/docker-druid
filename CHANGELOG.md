@@ -1,7 +1,9 @@
 ## Current Release 
+### 0.20.0 
+**Release Date:** Wed Sep 19 21:24:48 UTC 2018     
+## Previous Releases 
 ### 0.19.0 
 **Release Date:** Wed Sep 19 21:20:18 UTC 2018     
-## Previous Releases 
 * Fix - Fixed bad Env variable name
 ### 0.18.0 
 **Release Date:** Wed Sep 19 16:46:03 UTC 2018     
