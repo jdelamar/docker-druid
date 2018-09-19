@@ -1,8 +1,10 @@
-* Adding the DRUID_PEONS_JAVA_OPTS env variable to allow configuring memory for the peons from a docker-compose file (for instance)
 ## Current Release 
+### 0.18.0 
+**Release Date:** Wed Sep 19 16:46:03 UTC 2018     
+## Previous Releases 
+* Adding the DRUID_PEONS_JAVA_OPTS env variable to allow configuring memory for the peons from a docker-compose file (for instance)
 ### 0.17.0 
 **Release Date:** Thu Sep  6 21:09:14 UTC 2018     
-## Previous Releases 
 * Fix - Giving more memory to the middle manager Peons for 20k + TWAMP sessions systems
 
 ### 0.16.0 
