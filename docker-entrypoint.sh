@@ -18,7 +18,7 @@ echo "DRUID_MAX_DIRECTMEM_SIZE ${DRUID_MAX_DIRECTMEM_SIZE}"
 echo "DRUID_MIDDLEMANAGER_NUM_WORKERS ${DRUID_MIDDLEMANAGER_NUM_WORKERS}"
 echo "DRUID_HISTORICAL_NUM_PROCESSING_THREADS ${DRUID_HISTORICAL_NUM_PROCESSING_THREADS}"
 echo "DRUID_PROCESSING_BUFFER_SIZEBYTES ${DRUID_PROCESSING_BUFFER_SIZEBYTES}"
-echo "DRUID_PEONS_JAVA_OPTS ${DRUID_PEONS_JAVA_OPTS}"
+echo "DRUID_PEONS_JAVA_OPTS ${DRUID_PEONS_JAVA_XMX}"
 
 echo "COORDINATOR_IP ${COORDINATOR_IP}"
 echo "COORDINATOR_PORT ${COORDINATOR_PORT}"
@@ -43,6 +43,8 @@ if [ "$DRUID_NEWSIZE" != "-" ]; then
 fi
 if [ "$DRUID_HOSTNAME" != "-" ]; then
     sed -ri 's/druid.host=.*/druid.host='${DRUID_HOSTNAME}'/g' /opt/druid/conf/druid/$1/runtime.properties
+elif [ "$DRUID_HOSTNAME" = "-" ]; then
+    sed -ri 's/druid.host=.*//g' /opt/druid/conf/druid/$1/runtime.properties
 fi
 if [ "$DRUID_LOGLEVEL" != "-" ]; then
     sed -ri 's/druid.emitter.logging.logLevel=.*/druid.emitter.logging.logLevel='${DRUID_LOGLEVEL}'/g' /opt/druid/conf/druid/_common/common.runtime.properties
@@ -66,8 +68,11 @@ fi
 if [ "${DRUID_PROCESSING_BUFFER_SIZEBYTES}" != "-" ]; then
    sed -ri 's/druid.processing.buffer.sizeBytes=.*/druid.processing.buffer.sizeBytes='${DRUID_PROCESSING_BUFFER_SIZEBYTES}'/g' /opt/druid/conf/druid/$1/runtime.properties
 fi
-if [ "${DRUID_PEONS_JAVA_OPTS}" != "-" ]; then
-   sed -ri 's/druid.indexer.runner.javaOpts=.*/druid.indexer.runner.javaOpts='"${DRUID_PEONS_JAVA_OPTS}"'/g' /opt/druid/conf/druid/$1/runtime.properties
+if [ "${DRUID_PEONS_JAVA_XMX}" != "-" ]; then
+   sed -ri "s/PEON_SIZE/${DRUID_PEONS_JAVA_XMX}/g" /opt/druid/conf/druid/$1/runtime.properties
+elif [ "${DRUID_PEONS_JAVA_XMX}" = "-" ]; then
+   sed -ri "s/PEON_SIZE/4000m/g" /opt/druid/conf/druid/$1/runtime.properties
+
 fi
 
 if [ "$1" != "coordinator" ]; then

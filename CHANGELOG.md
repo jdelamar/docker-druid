@@ -1,3 +1,5 @@
+* Fix - Allowin configuration of middlemanager PEONS with the use of ENV variable DRUID_PEONS_JAVA_XMX
+* Fix - When DRUID_HOSTNAME is not specified, the default inet hostame is used (typically, the docker container id). This is required to support scaling docker swarm services
 ## Current Release 
 ### 0.21.0 
 **Release Date:** Wed Sep 19 21:35:28 UTC 2018     
