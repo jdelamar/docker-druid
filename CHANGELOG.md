@@ -1,7 +1,21 @@
 ## Current Release 
+### 0.22.0 
+**Release Date:** Sun Oct 21 04:38:17 UTC 2018     
+## Previous Releases 
+* Fix - Allowing configuration of middlemanager PEONS with the use of ENV variable DRUID_PEONS_JAVA_XMX
+* Fix - When DRUID_HOSTNAME is not specified, the default inet hostame is used (typically, the docker container id). This is required to support scaling docker swarm services
+### 0.21.0 
+**Release Date:** Wed Sep 19 21:35:28 UTC 2018     
+### 0.20.0 
+**Release Date:** Wed Sep 19 21:24:48 UTC 2018     
+### 0.19.0 
+**Release Date:** Wed Sep 19 21:20:18 UTC 2018     
+* Fix - Fixed bad Env variable name
+### 0.18.0 
+**Release Date:** Wed Sep 19 16:46:03 UTC 2018     
+* Adding the DRUID_PEONS_JAVA_OPTS env variable to allow configuring memory for the peons from a docker-compose file (for instance)
 ### 0.17.0 
 **Release Date:** Thu Sep  6 21:09:14 UTC 2018     
-## Previous Releases 
 * Fix - Giving more memory to the middle manager Peons for 20k + TWAMP sessions systems
 
 ### 0.16.0 
