@@ -6,7 +6,8 @@ ENV DRUID_VERSION   0.12.2
 #ENV JAVA_HOME       /opt/jdk1.8.0_131
 #ENV PATH            $PATH:/opt/jdk1.8.0_131/bin
 
-RUN apk update && apk add wget tar bash curl vim openjdk8 \
+RUN cat /etc/apk/repositories
+RUN apk update && apk add --update-cache wget tar bash curl vim openjdk8 sigar@community \
     && mkdir /tmp/druid \ 
     && rm -rf /var/cache/apk/*
 
