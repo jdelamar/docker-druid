@@ -46,11 +46,16 @@ COPY lib/* /opt/druid/lib/
 COPY conf /opt/druid-$DRUID_VERSION/conf
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
+# JMX exporter java agent
+COPY jmx_exporter/jmx_exporter.conf.yaml /jmx_exporter.conf.yaml
+COPY jmx_exporter/jmx_prometheus_javaagent-0.3.1.jar /jmx_prometheus_javaagent-0.3.1.jar
+
 RUN mkdir -p /tmp/druid
 EXPOSE 8090 8081 8080 8082
 # dumb-init must be used for all entrypoint
 # Note that Druid swarm task or docker run will typically be run with a CMD having the node flavor that
 # must be started (such as overlord, middlemanager, etc...
 
+# should we use the CMD instead of passing an argument?
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--", "/docker-entrypoint.sh"] 
 
