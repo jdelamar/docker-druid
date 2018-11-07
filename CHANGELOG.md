@@ -1,3 +1,5 @@
+* Feature - Made the druid cache size configurable via environment variables
+
 ## Current Release 
 ### 0.22.0 
 **Release Date:** Sun Oct 21 04:38:17 UTC 2018     
