@@ -1,9 +1,11 @@
+## Current Release 
+### 0.24.0 
+**Release Date:** Wed Nov  7 20:32:45 UTC 2018     
+## Previous Releases 
 * Feature - upgrading druid to 0.12.3
 
-## Current Release 
 ### 0.23.0 
 **Release Date:** Wed Nov  7 20:23:06 UTC 2018     
-## Previous Releases 
 * Feature - Made the druid cache size configurable via environment variables
 
 ### 0.22.0 
