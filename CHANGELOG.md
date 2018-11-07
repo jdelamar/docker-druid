@@ -1,3 +1,5 @@
+* Feature - upgrading druid to 0.12.3
+
 ## Current Release 
 ### 0.23.0 
 **Release Date:** Wed Nov  7 20:23:06 UTC 2018     

@@ -1,5 +1,5 @@
 DOCKER_REPO_NAME:= gcr.io/npav-172917/
-DOCKER_IMAGE_NAME :=  druid-0.12.2-stable
+DOCKER_IMAGE_NAME :=  druid-0.12.3-stable
 DOCKER_VER := $(if $(DOCKER_VER),$(DOCKER_VER),$(shell whoami)-dev)
  
 all: docker
