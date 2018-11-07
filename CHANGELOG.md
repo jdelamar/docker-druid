@@ -1,9 +1,11 @@
+## Current Release 
+### 0.23.0 
+**Release Date:** Wed Nov  7 20:23:06 UTC 2018     
+## Previous Releases 
 * Feature - Made the druid cache size configurable via environment variables
 
-## Current Release 
 ### 0.22.0 
 **Release Date:** Sun Oct 21 04:38:17 UTC 2018     
-## Previous Releases 
 * Fix - Allowing configuration of middlemanager PEONS with the use of ENV variable DRUID_PEONS_JAVA_XMX
 * Fix - When DRUID_HOSTNAME is not specified, the default inet hostame is used (typically, the docker container id). This is required to support scaling docker swarm services
 ### 0.21.0 
