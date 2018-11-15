@@ -7,7 +7,7 @@ ENV DRUID_VERSION   0.12.3
 #ENV PATH            $PATH:/opt/jdk1.8.0_131/bin
 
 RUN cat /etc/apk/repositories
-RUN apk update && apk add --update-cache wget tar bash curl vim openjdk8 sigar@community \
+RUN apk update && apk add --update-cache wget tar bash curl vim openjdk8 \
     && mkdir /tmp/druid \ 
     && rm -rf /var/cache/apk/*
 
@@ -58,6 +58,5 @@ EXPOSE 8090 8081 8080 8082
 # Note that Druid swarm task or docker run will typically be run with a CMD having the node flavor that
 # must be started (such as overlord, middlemanager, etc...
 
-# should we use the CMD instead of passing an argument?
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--", "/docker-entrypoint.sh"] 
 
