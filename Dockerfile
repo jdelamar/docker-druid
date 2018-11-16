@@ -6,7 +6,8 @@ ENV DRUID_VERSION   0.12.3
 #ENV JAVA_HOME       /opt/jdk1.8.0_131
 #ENV PATH            $PATH:/opt/jdk1.8.0_131/bin
 
-RUN apk update && apk add wget tar bash curl vim openjdk8 \
+RUN cat /etc/apk/repositories
+RUN apk update && apk add --update-cache wget tar bash curl vim openjdk8 \
     && mkdir /tmp/druid \ 
     && rm -rf /var/cache/apk/*
 
@@ -46,6 +47,10 @@ COPY extensions/ /opt/druid/extensions/
 COPY lib/* /opt/druid/lib/
 COPY conf /opt/druid-$DRUID_VERSION/conf
 COPY docker-entrypoint.sh /docker-entrypoint.sh
+
+# JMX exporter java agent
+COPY jmx_exporter/jmx_exporter.conf.yaml /jmx_exporter.conf.yaml
+COPY jmx_exporter/jmx_prometheus_javaagent-0.3.1.jar /jmx_prometheus_javaagent-0.3.1.jar
 
 RUN mkdir -p /tmp/druid
 EXPOSE 8090 8081 8080 8082
