@@ -1,7 +1,9 @@
-Fix - Fixed max server size to apply to segment location too"## Current Release 
+## Current Release 
+### 0.27.0 
+**Release Date:** Tue Nov 27 19:26:04 UTC 2018     
+## Previous Releases 
 ### 0.26.0 
 **Release Date:** Fri Nov 16 15:55:56 UTC 2018     
-## Previous Releases 
 * Feature - Druid Metric export
 ### 0.25.0 
 **Release Date:** Thu Nov 15 18:52:57 UTC 2018     
