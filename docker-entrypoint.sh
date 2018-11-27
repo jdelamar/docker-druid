@@ -93,4 +93,5 @@ echo "Waiting for kafka server @ $KAFKA_BROKER_HOSTNAME:$KAFKA_BROKER_PORT to st
 until nc -z -w 2 ${KAFKA_BROKER_HOSTNAME} ${KAFKA_BROKER_PORT}; do sleep 1; done
 echo "Kafka brokers are now online @ $KAFKA_BROKER_HOSTNAME:$KAFKA_BROKER_PORT"
 
-java `cat /opt/druid/conf/druid/$1/jvm.config | xargs` -cp /opt/druid/conf/druid/_common:/opt/druid/conf/druid/$1:/opt/druid/lib/* io.druid.cli.Main server $@
+# Java agent is used to forward JMX metrics to prometheus.
+java -javaagent:/jmx_prometheus_javaagent-0.3.1.jar=9123:/jmx_exporter.conf.yaml `cat /opt/druid/conf/druid/$1/jvm.config | xargs` -cp /opt/druid/conf/druid/_common:/opt/druid/conf/druid/$1:/opt/druid/lib/* io.druid.cli.Main server $@
