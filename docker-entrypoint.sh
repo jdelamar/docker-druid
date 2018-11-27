@@ -76,6 +76,7 @@ fi
 
 if [ "${DRUID_SERVER_MAX_SIZE}" != "-" ]; then
 	sed -ri 's/druid.server.maxSize=.*/druid.server.maxSize='${DRUID_SERVER_MAX_SIZE}'/g' /opt/druid/conf/druid/$1/runtime.properties
+	sed -ri 's|druid.segmentCache.locations=.*|druid.segmentCache.locations=[{"path":"var/druid/segment-cache","maxSize":'${DRUID_SERVER_MAX_SIZE}'}]|g' /opt/druid/conf/druid/$1/runtime.properties
 fi
 if [ "${DRUID_PEONS_JAVA_XMX}" != "-" ]; then
    sed -ri "s/PEON_SIZE/${DRUID_PEONS_JAVA_XMX}/g" /opt/druid/conf/druid/$1/runtime.properties
