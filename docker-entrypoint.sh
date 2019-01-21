@@ -50,6 +50,13 @@ fi
 if [ "$DRUID_LOGLEVEL" != "-" ]; then
     sed -ri 's/druid.emitter.logging.logLevel=.*/druid.emitter.logging.logLevel='${DRUID_LOGLEVEL}'/g' /opt/druid/conf/druid/_common/common.runtime.properties
 fi
+if [ "${DRUID_DISABLE_HTTP_EMITTER:-}" != "" ]; then
+    sed -ri 's/^druid.emitter=http$/#druid.emitter=http/' /opt/druid/conf/druid/_common/common.runtime.properties
+    sed -ri 's/^#?druid.emitter=logging$/druid.emitter=logging/' /opt/druid/conf/druid/_common/common.runtime.properties
+else
+    sed -ri 's/^#druid.emitter=http$/druid.emitter=http/' /opt/druid/conf/druid/_common/common.runtime.properties
+    sed -ri 's/^druid.emitter=logging$/#druid.emitter=logging/' /opt/druid/conf/druid/_common/common.runtime.properties
+fi
 if [ "$DRUID_USE_CONTAINER_IP" != "-" ]; then
     ipaddress=`ip a|grep "global eth0"|awk '{print $2}'|awk -F '\/' '{print $1}'`
     sed -ri 's/druid.host=.*/druid.host='${ipaddress}'/g' /opt/druid/conf/druid/$1/runtime.properties
@@ -82,7 +89,6 @@ if [ "${DRUID_PEONS_JAVA_XMX}" != "-" ]; then
    sed -ri "s/PEON_SIZE/${DRUID_PEONS_JAVA_XMX}/g" /opt/druid/conf/druid/$1/runtime.properties
 elif [ "${DRUID_PEONS_JAVA_XMX}" = "-" ]; then
    sed -ri "s/PEON_SIZE/4000m/g" /opt/druid/conf/druid/$1/runtime.properties
-
 fi
 
 if [ "$1" != "coordinator" ]; then
