@@ -1,7 +1,9 @@
 ## Current Release 
+### 0.28.0 
+**Release Date:** Tue Jan 22 15:37:34 UTC 2019     
+## Previous Releases 
 ### 0.27.0 
 **Release Date:** Tue Nov 27 19:26:04 UTC 2018     
-## Previous Releases 
 ### 0.26.0 
 **Release Date:** Fri Nov 16 15:55:56 UTC 2018     
 * Feature - Druid Metric export
