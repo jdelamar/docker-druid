@@ -52,7 +52,7 @@ if [ "$DRUID_LOGLEVEL" != "-" ]; then
 fi
 
 # Set the druid.emitter property to the value of DRUID_EMITTER (defaults to http when not set)
-sed -ri "s/^druid.emitter=.*$/druid.emitter=${DRUID_EMITTER:-http}/g" /opt/druid/conf/druid/_common/common.runtime.properties
+sed -ri "s/^druid.emitter=.*$/druid.emitter=${DRUID_EMITTER:-logging}/g" /opt/druid/conf/druid/_common/common.runtime.properties
 
 if [ "$DRUID_USE_CONTAINER_IP" != "-" ]; then
     ipaddress=`ip a|grep "global eth0"|awk '{print $2}'|awk -F '\/' '{print $1}'`
