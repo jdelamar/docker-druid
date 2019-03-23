@@ -23,6 +23,8 @@ echo "DRUID_SERVER_MAX_SIZE ${DRUID_SERVER_MAX_SIZE}"
 echo "COORDINATOR_IP ${COORDINATOR_IP}"
 echo "COORDINATOR_PORT ${COORDINATOR_PORT}"
 echo "DRUID_CACHE_SIZE ${DRUID_CACHE_SIZE}"
+echo "DRUID_S3_BUCKET_NAME ${DRUID_S3_BUCKET_NAME}"
+
 echo "ipaddress ${ipaddress}"
 
 
@@ -86,6 +88,12 @@ if [ "${DRUID_PEONS_JAVA_XMX}" != "-" ]; then
    sed -ri "s/PEON_SIZE/${DRUID_PEONS_JAVA_XMX}/g" /opt/druid/conf/druid/$1/runtime.properties
 elif [ "${DRUID_PEONS_JAVA_XMX}" = "-" ]; then
    sed -ri "s/PEON_SIZE/4000m/g" /opt/druid/conf/druid/$1/runtime.properties
+fi
+
+if [ "${DRUID_S3_BUCKET_NAME}" != "-" ]; then
+    sed -ri "s/^druid.storage.bucket=.*$/druid.storage.bucket=${DRUID_S3_BUCKET_NAME}/g" /opt/druid/conf/druid/_common/common.runtime.properties
+    sed -ri "s/^druid.indexer.logs.s3Bucket=.*$/druid.indexer.logs.s3Bucket=${DRUID_S3_BUCKET_NAME}/g" /opt/druid/conf/druid/_common/common.runtime.properties
+    sed -ri "s/^druid.indexer.logs.s3Bucket=.*$/druid.indexer.logs.s3Bucket=${DRUID_S3_BUCKET_NAME}/g" /opt/druid/conf/druid/$1/runtime.properties
 fi
 
 if [ "$1" != "coordinator" ]; then
