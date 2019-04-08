@@ -1,3 +1,4 @@
+* Adding support for S3_BUCKET_NAME env variable, to allow one to specify which s3 bucket to use
 ## Current Release 
 ### 0.32.0 
 **Release Date:** Fri Mar 15 14:30:56 UTC 2019     
