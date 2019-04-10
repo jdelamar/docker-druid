@@ -1,10 +1,7 @@
 FROM iron/java:1.8-dev
 MAINTAINER jbaptiste <jb@zen.ly>
 
-# Java config
-ENV DRUID_VERSION   0.12.3
-#ENV JAVA_HOME       /opt/jdk1.8.0_131
-#ENV PATH            $PATH:/opt/jdk1.8.0_131/bin
+ENV DRUID_VERSION   0.14.0-incubating
 
 RUN cat /etc/apk/repositories
 RUN apk update && apk add --update-cache wget tar bash curl vim openjdk8 \
@@ -12,11 +9,9 @@ RUN apk update && apk add --update-cache wget tar bash curl vim openjdk8 \
     && rm -rf /var/cache/apk/*
 
 RUN mkdir -p /opt
-# RUN wget -q --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -O - \
-#      http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/server-jre-8u131-linux-x64.tar.gz | tar -xzf - -C /opt
- 
+
 RUN wget -q --no-check-certificate --no-cookies -O - \
-      http://static.druid.io/artifacts/releases/druid-$DRUID_VERSION-bin.tar.gz | tar -xzf - -C /opt \
+     http://apache.mirror.vexxhost.com/incubator/druid/$DRUID_VERSION/apache-druid-$DRUID_VERSION-bin.tar.gz | tar -xzf - -C /opt \
       && ln -s /opt/druid-$DRUID_VERSION /opt/druid
 
 RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_amd64
