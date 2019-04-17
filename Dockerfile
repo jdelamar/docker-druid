@@ -12,7 +12,7 @@ RUN mkdir -p /opt
 
 RUN wget -q --no-check-certificate --no-cookies -O - \
      http://apache.mirror.vexxhost.com/incubator/druid/$DRUID_VERSION/apache-druid-$DRUID_VERSION-bin.tar.gz | tar -xzf - -C /opt \
-      && ln -s /opt/druid-$DRUID_VERSION /opt/druid
+      && ln -s /opt/apache-druid-$DRUID_VERSION /opt/druid
 
 RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_amd64
 RUN chmod +x /usr/local/bin/dumb-init
@@ -35,12 +35,16 @@ ENV DRUID_SERVER_MAX_SIZE "-"
 ENV DRUID_CACHE_SIZE "-"
 ENV DRUID_S3_BUCKET_NAME "-"
 
+# The following is a bogus env set to comply with Amazon S3 API as of Druid-0.14.0. We use minio as a gateway to 
+# S3, so any region speciifed here won't have any effect:
+ENV AWS_REGION=us-east-1
+
 #ADD druid-0.10.1-bin.tar.gz /opt/
 #RUN ln -s /opt/druid-$DRUID_VERSION /opt/druid 
 COPY hadoop-dependencies/hadoop-aws-2.7.3.jar /opt/druid/hadoop-dependencies/hadoop-client/2.7.3/
 COPY extensions/ /opt/druid/extensions/
 COPY lib/* /opt/druid/lib/
-COPY conf /opt/druid-$DRUID_VERSION/conf
+COPY conf /opt/druid/conf
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 # JMX exporter java agent
