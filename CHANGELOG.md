@@ -1,3 +1,4 @@
+* Upgrading to druid 0.14.0
 ## Current Release 
 ### 0.34.0 
 **Release Date:** Mon Apr  8 16:50:25 UTC 2019     
